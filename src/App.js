@@ -2,9 +2,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Container } from "react-bootstrap";
 import "./index.css";
 import { MemberAddForm } from "./Components/MemberAddForm";
-import { MemberDetailsTable } from "./Components/MemberDetailsTable";
+import { useState } from "react";
 import { MemberListArea } from "./Components/MemberListArea";
 function App() {
+  const [members, setMembers] = useState([]);
+  const addMember = (newMember) => {
+    setMembers([...members, newMember]);
+    console.log(members);
+  };
   return (
     <div className="wrapper">
       <Container>
@@ -13,10 +18,10 @@ function App() {
         </h3>
 
         {/* Member Form goes here */}
-        <MemberAddForm></MemberAddForm>
+        <MemberAddForm addMember={addMember}></MemberAddForm>
         <hr className="formSeparationHr" />
         {/* Member List Area</MemberDetailsTable> Goes Here */}
-        <MemberListArea></MemberListArea>
+        <MemberListArea members={members}></MemberListArea>
       </Container>
     </div>
   );

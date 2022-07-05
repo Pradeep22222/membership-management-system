@@ -4,7 +4,7 @@ import { MemberSearchForm } from "./MemberSearchForm";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Dropdown from "react-bootstrap/Dropdown";
-export const MemberListArea = () => {
+export const MemberListArea = ({ members }) => {
   return (
     <div>
       <MemberSearchForm></MemberSearchForm>
@@ -43,7 +43,8 @@ export const MemberListArea = () => {
           </Dropdown>
         </div>
       </div>
-      <MembersDetailsSection></MembersDetailsSection>
+      <hr className="formSeparationHr" />
+      <MembersDetailsSection members={members}></MembersDetailsSection>
     </div>
   );
 };
